@@ -1,0 +1,9 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    url: jdbc:mysql://119.23.252.133:3306/biology?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: power
+    password: tower.1893
+    driver-class-name: com.mysql.cj.jdbc.Driver
