@@ -1,4 +1,4 @@
-package com.example.biology.common;
+package com.example.oral.common;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;

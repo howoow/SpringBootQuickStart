@@ -1,4 +1,4 @@
-package com.example.biology.common;
+package com.example.oral.common;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

@@ -1,4 +1,4 @@
-package com.example.biology.util;
+package com.example.oral.util;
 /**
  * @author: WuHao
  * @date: 2024/4/3 13:23
@@ -13,14 +13,8 @@ import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 import com.baomidou.mybatisplus.generator.fill.Column;
-import com.example.biology.common.BaseService;
-import com.example.biology.common.ResponseCode;
-import com.example.biology.common.ResponseResult;
-import com.example.biology.entity.Community;
-import com.example.biology.service.CommunityService;
-import org.springframework.web.bind.annotation.*;
+import com.example.oral.common.BaseService;
 
-import javax.annotation.Resource;
 import java.util.Collections;
 
 /**
@@ -32,7 +26,7 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
         //1、配置数据源
-        FastAutoGenerator.create("jdbc:mysql://119.23.252.133:3306/biology", "power", "tower.1893")
+        FastAutoGenerator.create("jdbc:mysql://119.23.252.133:3306/oral_sys", "power", "tower.1893")
                 //2、全局配置
                 .globalConfig(builder -> {
                     builder.author("WuHao") // 设置作者名
@@ -45,8 +39,8 @@ public class CodeGenerator {
 
                 //3、包配置
                 .packageConfig(builder -> {
-                    builder.parent("com.example.biology") // 设置父包名
-                            .entity("entity")   //pojo 实体类包名
+                    builder.parent("com.example.oral") // 设置父包名
+                            .entity("entity")   // 实体类包名
                             .service("service") //Service 包名
                             .serviceImpl("serviceImpl") // ***ServiceImpl 包名
                             .mapper("mapper")   //Mapper 包名
@@ -57,8 +51,8 @@ public class CodeGenerator {
                 })
                 //4、策略配置
                 .strategyConfig(builder -> {
-                    builder.addInclude("sys_user", "taxon", "specimen", "community", "quadrat") // 设置需要生成的数据表名
-                            .addTablePrefix("t_", "c_") // 设置过滤表前缀
+                    builder.addInclude("patient", "patient_cleft_relation", "treatment", "evaluation", "consultation") // 设置需要生成的数据表名
+                            // .addTablePrefix("t_", "c_") // 设置过滤表前缀
 
                     //4.1、Mapper策略配置
                     .mapperBuilder()
@@ -80,10 +74,10 @@ public class CodeGenerator {
                     .enableTableFieldAnnotation() //开启字段注解
                     .naming(NamingStrategy.underline_to_camel) //下划线转驼峰
                     .columnNaming(NamingStrategy.underline_to_camel) //下划线转驼峰
-                    .addTableFills(
-                            new Column("create_time", FieldFill.INSERT),
-                            new Column("modify_time", FieldFill.INSERT_UPDATE)
-                    ) //添加表字段填充，"create_time"字段自动填充为插入时间，"modify_time"字段自动填充为插入修改时间
+//                    .addTableFills(
+//                            new Column("create_time", FieldFill.INSERT),
+//                            new Column("modify_time", FieldFill.INSERT_UPDATE)
+//                    ) //添加表字段填充，"create_time"字段自动填充为插入时间，"modify_time"字段自动填充为插入修改时间
 
                     // 4.4、Controller配置策略
                     .controllerBuilder()
@@ -95,31 +89,5 @@ public class CodeGenerator {
                 //6、执行
                 .execute();
     }
-
-//    public class CommunityController {
-//        @Resource
-//        CommunityService communityService;
-//
-//        @GetMapping("/get")
-//        public ResponseResult get(@RequestParam Integer id) {
-//            return ResponseResult.e(ResponseCode.OK, communityService.getById(id));
-//        }
-//
-//        @PutMapping("/update")
-//        public ResponseResult update(@RequestBody Community community) {
-//            return ResponseResult.e(ResponseCode.OK, communityService.updateById(community));
-//        }
-//
-//
-//        @GetMapping("/list")
-//        public ResponseResult list() {
-//            return ResponseResult.e(ResponseCode.OK, communityService.list());
-//        }
-//
-//        @DeleteMapping("/delete")
-//        public ResponseResult delete(@RequestParam Integer id) {
-//            return ResponseResult.e(ResponseCode.OK, communityService.removeById(id));
-//        }
-//    }
 
 }

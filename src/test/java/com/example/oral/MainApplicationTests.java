@@ -1,10 +1,10 @@
-package com.example.biology;
+package com.example.oral;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BiologyApplicationTests {
+class MainApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,4 @@
-package com.example.biology.config;
+package com.example.oral.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;

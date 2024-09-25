@@ -1,4 +1,4 @@
-package com.example.biology.common;
+package com.example.oral.common;
 
 /**
  * @author: ZhangYi
